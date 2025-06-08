@@ -6,4 +6,4 @@ Better Keepinventory is a mod that makes it so you only drop loot when killed by
 
 ## Versions
 
-The officially supported versions are 1.17.1, 1.19, and all 1.20+1.21 versions. However, because the mod is so minimal, many other versions should be supported with straightforward modifications.
+This fork supports 
