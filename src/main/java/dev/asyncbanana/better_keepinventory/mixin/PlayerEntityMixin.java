@@ -14,17 +14,15 @@ public abstract class PlayerEntityMixin {
 	@Redirect(method = "dropInventory", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
 	public boolean checkPlayerKillInventory(GameRules rules, GameRules.Key<GameRules.BooleanRule> key) {
 		if (rules.getBoolean(BetterKeepinventory.BETTER_KEEPINVENTORY)) {
-			return (((PlayerEntity) (Object) this).getAttacker() == null
-					|| ((PlayerEntity) (Object) this).getAttacker().getType() != EntityType.ZOMBIE);
+			return ((PlayerEntity) (Object) this).getAttacker().getType() != EntityType.PLAYER;
 		}
 		return rules.getBoolean(key);
 	}
 
-	@Redirect(method = "getXpToDrop", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+	@Redirect(method = "getExperienceToDrop", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
 	public boolean checkPlayerKillXP(GameRules rules, GameRules.Key<GameRules.BooleanRule> key) {
 		if (rules.getBoolean(BetterKeepinventory.BETTER_KEEPINVENTORY)) {
-			return (((PlayerEntity) (Object) this).getAttacker() == null
-					|| ((PlayerEntity) (Object) this).getAttacker().getType() != EntityType.ZOMBIE);
+			return ((PlayerEntity) (Object) this).getAttacker().getType() != EntityType.PLAYER;
 		}
 		return rules.getBoolean(key);
 	}
