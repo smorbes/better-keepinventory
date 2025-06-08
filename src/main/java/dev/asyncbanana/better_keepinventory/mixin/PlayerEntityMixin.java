@@ -16,6 +16,7 @@ public abstract class PlayerEntityMixin {
 		if (rules.getBoolean(BetterKeepinventory.BETTER_KEEPINVENTORY)) {
 			return ((PlayerEntity) (Object) this).getAttacker().getType() != EntityType.PLAYER;
 		}
+		//Returns the value of keepInventory
 		return rules.getBoolean(key);
 	}
 
